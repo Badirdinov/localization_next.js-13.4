@@ -1,0 +1,8 @@
+const dictionaries: any = {
+	en: () => import('./dictionaries/en.json').then(r => r.default),
+	ru: () => import('./dictionaries/ru.json').then(r => r.default)
+}
+
+export const getDectionaries = ({ lang }: { lang: string }) => {
+	return dictionaries[lang]()
+}
